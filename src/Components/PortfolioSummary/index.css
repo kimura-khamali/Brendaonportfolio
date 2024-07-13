@@ -1,0 +1,88 @@
+/* PortfolioSummary.css */
+
+.portfolio-summary {
+    font-family: Arial, sans-serif;
+    background-color: #f0fff0; /* Light mint green background */
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    background-color: #4169E1; /* Royal blue header */
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #00008B; /* Dark blue */
+    font-size: 2.5em;
+    text-align: center;
+}
+
+h2 {
+    color: #4682B4; /* Steel blue */
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.web-involvement {
+    margin-bottom: 20px;
+}
+
+.web-involvement ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+.web-involvement li {
+    background-color: #E6E6FA; /* Lavender */
+    padding: 5px 15px;
+    margin: 0 10px;
+    border-radius: 15px;
+}
+
+.future-design {
+    background-color: #000;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.download-cv {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #DC143C; /* Crimson */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Add more specific styles as needed */

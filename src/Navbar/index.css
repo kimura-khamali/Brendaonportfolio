@@ -1,0 +1,7 @@
+.navbar {
+    background-color: blue; /* Or your desired color */
+    color: white; /* Or your desired text color */
+    display: flex; /* Ensures elements are in line */
+    justify-content: space-between; /* Distributes links horizontally */
+    padding: 10px;
+  }
