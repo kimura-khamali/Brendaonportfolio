@@ -1,14 +1,14 @@
-/* PortfolioSummary.css */
+/* PortfolioSummary.css 
 
 .portfolio-summary {
     font-family: Arial, sans-serif;
-    background-color: #f0fff0; /* Light mint green background */
+    background-color: #f0fff0; /* Light mint green background 
     color: #333;
     padding: 20px;
 }
 
 header {
-    background-color: #4169E1; /* Royal blue header */
+    background-color: #4169E1; /* Royal blue header 
     padding: 10px 0;
 }
 
@@ -31,13 +31,13 @@ main {
 }
 
 h1 {
-    color: #00008B; /* Dark blue */
+    color: #00008B; /* Dark blue 
     font-size: 2.5em;
     text-align: center;
 }
 
 h2 {
-    color: #4682B4; /* Steel blue */
+    color: #4682B4; /* Steel blue 
     font-size: 1.5em;
     text-align: center;
 }
@@ -59,7 +59,7 @@ h2 {
 }
 
 .web-involvement li {
-    background-color: #E6E6FA; /* Lavender */
+    background-color: #E6E6FA; /* Lavender 
     padding: 5px 15px;
     margin: 0 10px;
     border-radius: 15px;
@@ -77,7 +77,7 @@ h2 {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
-    background-color: #DC143C; /* Crimson */
+    background-color: #DC143C; /* Crimson 
     color: white;
     border: none;
     border-radius: 5px;
@@ -85,4 +85,168 @@ h2 {
     font-weight: bold;
 }
 
-/* Add more specific styles as needed */
+Add more specific styles as needed
+
+
+
+/* styles.css */
+.portfolio-container {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #f0fff4, #ebf8ff);
+    padding: 1.5rem;
+  }
+  
+  .main-content {
+    max-width: 90rem;
+    margin: 0 auto;
+  }
+  
+  .hero-section {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding-top: 3rem;
+  }
+  
+  .profile-image-container {
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    border: 4px solid #3b82f6;
+  }
+  
+  h1 {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: #1e3a8a;
+    margin-bottom: 1rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    color: #1d4ed8;
+    margin-bottom: 1.5rem;
+  }
+  
+  .intro-text {
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+  
+  .intro-text p {
+    font-size: 1.125rem;
+    color: #374151;
+    margin-bottom: 1rem;
+  }
+  
+  .intro-text .italic {
+    font-style: italic;
+    color: #4b5563;
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .social-button {
+    background: none;
+    border: none;
+    color: #4b5563;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .social-button:hover {
+    color: #3b82f6;
+  }
+  
+  .skills-section {
+    margin-bottom: 4rem;
+  }
+  
+  .skills-section h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 2rem;
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .skills-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .skill-card {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+  }
+  
+  .skill-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .skill-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .skill-icon {
+    color: #3b82f6;
+  }
+  
+  .skill-card h4 {
+    font-weight: 600;
+    font-size: 1.125rem;
+  }
+  
+  .skill-card p {
+    color: #4b5563;
+  }
+  
+  .cta-section {
+    text-align: center;
+  }
+  
+  .download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #2563eb;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .download-button:hover {
+    background-color: #1d4ed8;
+  }
