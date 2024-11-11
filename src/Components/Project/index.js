@@ -5,20 +5,23 @@ import shawazi_product from '../../assets/shaproduct.png'
 import Suubi from '../../assets/suubi.png'
 import Akili from '../../assets/akili.png'
 import Evogreen from '../../assets/evogreen.png'
+import Portfolio from '../../assets/brenda.png'
+import Hero from '../../assets/Hero.png'
 import './index.css'; 
 
 const ProjectShowcase = () => {
   const projects = [
     {
-      title: 'Magezi Informational',
-      screenshot: shawazi,
-      link: 'https://magezi-informational-c594.vercel.app/'
+      title: 'My Porfolio',
+      screenshot: Portfolio,
+      link: 'https://brendaonportfolio.vercel.app/'
     },
     {
-      title: 'Shawazi',
-      screenshot: shawazi_product,
-      link: 'https://shawazi-magezi.vercel.app/'
+      title: 'Evogreen',
+      screenshot: Evogreen,
+      link: 'https://akili-plants.vercel.app/'
     },
+   
     {
       title: 'Suubi',
       screenshot: Suubi,
@@ -44,10 +47,11 @@ const ProjectShowcase = () => {
       screenshot: Suubi,
       link: 'https://my-suubi-webpage.vercel.app/'
     },
+    
     {
-      title: 'Evogreen',
-      screenshot: Evogreen,
-      link: 'https://akili-plants.vercel.app/'
+      title: 'Hero',
+      screenshot: Hero,
+      link: 'https://upgrade-skills.vercel.app/'
     }
   ];
 
