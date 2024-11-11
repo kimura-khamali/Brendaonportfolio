@@ -23,7 +23,7 @@ function App() {
               </div> */}
               {/* <Profile /> */}
               <PortfolioSummary/>
-              <Skills />
+              {/* <Skills /> */}
               {/* <Experience />
               <Education /> */}
             {/* </main>

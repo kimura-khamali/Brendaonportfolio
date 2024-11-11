@@ -1,4 +1,4 @@
-.contact-container {
+/* .contact-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -42,4 +42,107 @@
   
   .submit-btn:hover {
     background-color: #8c0d3f;
+  } */
+
+
+
+  /* index.css */
+
+:root {
+  --primary-color: #4f46e5;
+  --primary-light: #818cf8;
+  --dark-bg: #1a1a1a;
+  --dark-surface: #2a2a2a;
+  --text-primary: #ffffff;
+  --text-secondary: #a3a3a3;
+}
+
+.contact-container {
+  min-height: 100vh;
+  background: var(--dark-bg);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, sans-serif;
+  padding: 3rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-container h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.contact-container p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--dark-surface);
+  border-radius: 8px;
+  background-color: var(--dark-surface);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-light);
+}
+
+.form-group .required {
+  color: #ff5252;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+  border: none;
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 1.125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 2rem 1rem;
   }
+
+  .contact-container h1 {
+    font-size: 2rem;
+  }
+
+  .contact-container p {
+    font-size: 1rem;
+  }
+}
