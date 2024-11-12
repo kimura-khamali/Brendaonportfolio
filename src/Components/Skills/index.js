@@ -1,95 +1,651 @@
-import React from 'react';
-import { Code, Palette, Database, Users, Wrench } from 'lucide-react'; 
-import './index.css'; 
+// import React from 'react';
+// import { Code, Palette, Database, Users, Wrench } from 'lucide-react'; 
+// import './index.css'; 
 
-const SkillCategory = ({ title, icon, skills }) => (
-  <div className="skill-category">
-    <div className="category-header">
-      {icon}
-      <h3>{title}</h3>
+// const SkillCategory = ({ title, icon, skills }) => (
+//   <div className="skill-category">
+//     <div className="category-header">
+//       {icon}
+//       <h3>{title}</h3>
+//     </div>
+//     <ul>
+//       {skills.map((skill, index) => (
+//         <li key={index}>{skill}</li>
+//       ))}
+//     </ul>
+//   </div>
+// );
+
+// const Skills = () => {
+//   const skillCategories = [
+//     {
+//       title: "Programming Languages",
+//       icon: <Code className="category-icon" />,
+//       skills: [
+//         "Proficient in Kotlin, Python, and JavaScript",
+//         "Strong understanding of data types and structures",
+//         "Experience with object-oriented programming"
+//       ]
+//     },
+//     {
+//       title: "Web Development",
+//       icon: <Palette className="category-icon" />,
+//       skills: [
+//         "HTML, CSS, and JavaScript fundamentals",
+//         "React and DOM manipulation",
+//         "Responsive design and UI/UX principles",
+//         "API integration and asynchronous programming"
+//       ]
+//     },
+//     {
+//       title: "Backend & Databases",
+//       icon: <Database className="category-icon" />,
+//       skills: [
+//         "Django Framework expertise",
+//         "SQL and database management",
+//         "RESTful API design and implementation"
+//       ]
+//     },
+//     {
+//       title: "Mobile Development",
+//       icon: <Wrench className="category-icon" />, 
+//       skills: [
+//         "Android development concepts",
+//         "Activity views, binding, and intents",
+//         "Mobile UI/UX design principles"
+//       ]
+//     },
+//     {
+//       title: "Design & Tools",
+//       icon: <Wrench className="category-icon" />, 
+//       skills: [
+//         "Figma, Adobe Illustrator, and Photoshop",
+//         "Logo design and mockup creation",
+//         "Version control with Git and GitHub"
+//       ]
+//     },
+//     {
+//       title: "Soft Skills & Methodologies",
+//       icon: <Users className="category-icon" />,
+//       skills: [
+//         "Agile and Scrum methodologies",
+//         "Sprint planning and retrospectives",
+//         "Collaboration and code review processes"
+//       ]
+//     }
+//   ];
+
+//   return (
+//     <section className="skills-section">
+//       <h2>My Skill Set</h2>
+//       <div className="skills-grid">
+//         {skillCategories.map((category, index) => (
+//           <SkillCategory
+//             key={index}
+//             title={category.title}
+//             icon={category.icon}
+//             skills={category.skills}
+//           />
+//         ))}
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Skills;
+
+import React, { useState } from 'react';
+import { Code, Palette, Database, Users, Wrench } from 'lucide-react';
+import './index.css';
+import cv from '../../assets/Brenda Khamali Kimura Cv.png';
+import calculator from '../../assets/Calculator Design.png';
+import anuru from '../../assets/anuru.jpg';
+import logo from '../../assets/logo design.png';
+import design from '../../assets/design.jpeg'
+import traditional from '../../assets/Traditional food (1).png'
+import dashboard from '../../assets/dashboard.png'
+import portfolio from '../../assets/portfolio.png'
+import data from '../../assets/data cleaning.png'
+import sql from '../../assets/postgres - Magezi_table.png'
+import postdetails from '../../assets/postman.png'
+import authentication from '../../assets/authentication.png'
+import order from '../../assets/order.png'
+
+// CollageView Component
+const CollageView = ({ category, onClose }) => {
+    const projectsByCategory = {
+        "Programming Languages": [
+            { title: "Welcome", image: design, description: "Data analysis project using pandas" },
+            // { title: "JavaScript Game", image: "/api/placeholder/300/200", description: "Browser-based game using vanilla JS" },
+            // { title: "Kotlin Android App", image: "/api/placeholder/300/200", description: "Mobile application" }
+        ],
+        "Web Development": [
+            { title: "Traditional", image: traditional, description: "Traditional food sight" },
+            { title: "Portfolio Website", image: portfolio, description: "Responsive personal portfolio" },
+            { title: "Dashboard UI", image: dashboard, description: "Admin dashboard interface" }
+        ],
+        "Backend & Databases": [
+            { title: "Database Design", image: data, description: "Complex SQL database schema" },
+            { title: "Database Design", image: sql, description: "Complex SQL database schema" },
+            { title: "Authentication System", image: postdetails, description: "Secure user auth system" }
+        ],
+        "Mobile Development": [
+            { title: "Authentication", image: authentication, description: "Suubi Authentication app" },
+            { title: "Saving Up", image: order, description: "Saving app" },
+        ],
+        "Design & Tools": [
+            { title: "CV design", image: cv, description: "Complete brand package" },
+            { title: "Calculator", image: calculator, description: "Component library design" },
+            { title: "Mock Up", image: anuru, description: "Component library design" },
+            { title: "Logo Collection", image: logo, description: "Various client logos" }
+        ],
+        "Soft Skills & Methodologies": [
+            { title: "Team Project", image: "/api/placeholder/300/200", description: "Agile development process" },
+            { title: "Documentation", image: "/api/placeholder/300/200", description: "Technical documentation" },
+            { title: "Sprint Planning", image: "/api/placeholder/300/200", description: "Project management" }
+        ]
+    };
+
+    const projects = projectsByCategory[category.title] || [];
+
+    return (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg w-full max-w-4xl p-6 max-h-[90vh] overflow-y-auto">
+                <div className="flex justify-between items-center mb-6">
+                    <h2 className="text-2xl font-bold flex items-center gap-2">
+                        {category.icon}
+                        {category.title}
+                    </h2>
+                    <button 
+                        onClick={onClose}
+                        className="p-2 hover:bg-gray-100 rounded-full"
+                    >
+                        ×
+                    </button>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {projects.map((project, index) => (
+                        <div key={index} className="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                            <img 
+                                src={project.image} 
+                                alt={project.title}
+                                className="project-image w-full h-48 object-cover cursor-pointer"
+                                onClick={() => {/* Add code to show full image if needed */}}
+                            />
+                            <div className="p-4">
+                                <h3 className="font-semibold text-lg mb-2">{project.title}</h3>
+                                <p className="text-gray-600">{project.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// SkillCategory Component with original styling
+const SkillCategory = ({ title, icon, skills, onClick }) => (
+    <div className="skill-category" onClick={onClick}>
+        <div className="skill-header">
+            {icon}
+            <h3>{title}</h3>
+        </div>
+        <ul className="skill-list">
+            {skills.map((skill, index) => (
+                <li key={index}>{skill}</li>
+            ))}
+        </ul>
     </div>
-    <ul>
-      {skills.map((skill, index) => (
-        <li key={index}>{skill}</li>
-      ))}
-    </ul>
-  </div>
 );
 
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Programming Languages",
-      icon: <Code className="category-icon" />,
-      skills: [
-        "Proficient in Kotlin, Python, and JavaScript",
-        "Strong understanding of data types and structures",
-        "Experience with object-oriented programming"
-      ]
-    },
-    {
-      title: "Web Development",
-      icon: <Palette className="category-icon" />,
-      skills: [
-        "HTML, CSS, and JavaScript fundamentals",
-        "React and DOM manipulation",
-        "Responsive design and UI/UX principles",
-        "API integration and asynchronous programming"
-      ]
-    },
-    {
-      title: "Backend & Databases",
-      icon: <Database className="category-icon" />,
-      skills: [
-        "Django Framework expertise",
-        "SQL and database management",
-        "RESTful API design and implementation"
-      ]
-    },
-    {
-      title: "Mobile Development",
-      icon: <Wrench className="category-icon" />, 
-      skills: [
-        "Android development concepts",
-        "Activity views, binding, and intents",
-        "Mobile UI/UX design principles"
-      ]
-    },
-    {
-      title: "Design & Tools",
-      icon: <Wrench className="category-icon" />, 
-      skills: [
-        "Figma, Adobe Illustrator, and Photoshop",
-        "Logo design and mockup creation",
-        "Version control with Git and GitHub"
-      ]
-    },
-    {
-      title: "Soft Skills & Methodologies",
-      icon: <Users className="category-icon" />,
-      skills: [
-        "Agile and Scrum methodologies",
-        "Sprint planning and retrospectives",
-        "Collaboration and code review processes"
-      ]
-    }
-  ];
+    const [selectedCategory, setSelectedCategory] = useState(null);
 
-  return (
-    <section className="skills-section">
-      <h2>My Skill Set</h2>
-      <div className="skills-grid">
-        {skillCategories.map((category, index) => (
-          <SkillCategory
-            key={index}
-            title={category.title}
-            icon={category.icon}
-            skills={category.skills}
-          />
-        ))}
-      </div>
-    </section>
-  );
+    const skillCategories = [
+        {
+            title: "Programming Languages",
+            icon: <Code className="skill-icon" />,
+            skills: [
+                "Proficient in Kotlin, Python, and JavaScript",
+                "Strong understanding of data types and structures",
+                "Experience with object-oriented programming"
+            ]
+        },
+        {
+            title: "Web Development",
+            icon: <Palette className="skill-icon" />,
+            skills: [
+                "HTML, CSS, and JavaScript fundamentals",
+                "React and DOM manipulation",
+                "Responsive design and UI/UX principles",
+                "API integration and asynchronous programming"
+            ]
+        },
+        {
+            title: "Backend & Databases",
+            icon: <Database className="skill-icon" />,
+            skills: [
+                "Django Framework expertise",
+                "SQL and database management",
+                "RESTful API design and implementation"
+            ]
+        },
+        {
+            title: "Mobile Development",
+            icon: <Code className="skill-icon" />,
+            skills: [
+                "Android development concepts",
+                "Activity views, binding, and intents",
+                "Mobile UI/UX design principles"
+            ]
+        },
+        {
+            title: "Design & Tools",
+            icon: <Wrench className="skill-icon" />,
+            skills: [
+                "Figma, Adobe Illustrator, and Photoshop",
+                "Logo design and mockup creation",
+                "Version control with Git and GitHub"
+            ]
+        },
+        {
+            title: "Soft Skills & Methodologies",
+            icon: <Users className="skill-icon" />,
+            skills: [
+                "Agile and Scrum methodologies",
+                "Sprint planning and retrospectives",
+                "Collaboration and code review processes"
+            ]
+        }
+    ];
+
+    return (
+        <div className="skills-container">
+            <h2 className="skills-title">My Skill Set</h2>
+            <div className="skills-grid">
+                {skillCategories.map((category, index) => (
+                    <SkillCategory
+                        key={index}
+                        {...category}
+                        onClick={() => setSelectedCategory(category)}
+                    />
+                ))}
+            </div>
+            {selectedCategory && (
+                <CollageView
+                    category={selectedCategory}
+                    onClose={() => setSelectedCategory(null)}
+                />
+            )}
+        </div>
+    );
 };
 
 export default Skills;
+
+// import React, { useState } from 'react';
+// import { Code, Palette, Database, Users, Wrench } from 'lucide-react';
+// import './index.css';
+// import cv from '../../assets/Brenda Khamali Kimura Cv.png'
+// import calculator from '../../assets/Calculator Design.png'
+// import anuru from '../../assets/anuru.jpg'
+// import logo from '../../assets/logo design.png'
+
+// // CollageView Component
+// const CollageView = ({ category, onClose }) => {
+//   const projectsByCategory = {
+//     "Programming Languages": [
+//       { title: "Python Data Analysis", image: "/api/placeholder/300/200", description: "Data analysis project using pandas" },
+//       { title: "JavaScript Game", image: "/api/placeholder/300/200", description: "Browser-based game using vanilla JS" },
+//       { title: "Kotlin Android App", image: "/api/placeholder/300/200", description: "Mobile application" }
+//     ],
+//     "Web Development": [
+//       { title: "E-commerce Site", image: "/api/placeholder/300/200", description: "Full-stack React application" },
+//       { title: "Portfolio Website", image: "/api/placeholder/300/200", description: "Responsive personal portfolio" },
+//       { title: "Dashboard UI", image: "/api/placeholder/300/200", description: "Admin dashboard interface" }
+//     ],
+//     "Backend & Databases": [
+//       { title: "REST API", image: "/api/placeholder/300/200", description: "Django REST framework API" },
+//       { title: "Database Design", image: "/api/placeholder/300/200", description: "Complex SQL database schema" },
+//       { title: "Authentication System", image: "/api/placeholder/300/200", description: "Secure user auth system" }
+//     ],
+//     "Mobile Development": [
+//       { title: "Fitness Tracker", image: "/api/placeholder/300/200", description: "Android fitness app" },
+//       { title: "Chat Application", image: "/api/placeholder/300/200", description: "Real-time messaging app" },
+//       { title: "Weather App", image: "/api/placeholder/300/200", description: "Location-based weather app" }
+//     ],
+//     "Design & Tools": [
+//       { title: "CV design", image: cv, description: "Complete brand package" },
+//       { title: "Calculator", image: calculator, description: "Component library design" },
+//       { title: "Mock Up", image: anuru, description: "Component library design" },
+//       { title: "Logo Collection", image: logo, description: "Various client logos" }
+//     ],
+//     "Soft Skills & Methodologies": [
+//       { title: "Team Project", image: "/api/placeholder/300/200", description: "Agile development process" },
+//       { title: "Documentation", image: "/api/placeholder/300/200", description: "Technical documentation" },
+//       { title: "Sprint Planning", image: "/api/placeholder/300/200", description: "Project management" }
+//     ]
+//   };
+
+//   const projects = projectsByCategory[category.title] || [];
+
+//   return (
+//     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+//       <div className="bg-white rounded-lg w-full max-w-4xl p-6 max-h-[90vh] overflow-y-auto">
+//         <div className="flex justify-between items-center mb-6">
+//           <h2 className="text-2xl font-bold flex items-center gap-2">
+//             {category.icon}
+//             {category.title}
+//           </h2>
+//           <button 
+//             onClick={onClose}
+//             className="p-2 hover:bg-gray-100 rounded-full"
+//           >
+//             ×
+//           </button>
+//         </div>
+//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+//           {projects.map((project, index) => (
+//             <div key={index} className="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+//               <img 
+//                 src={project.image} 
+//                 alt={project.title}
+//                 className="w-full h-48 object-cover"
+//               />
+//               <div className="p-4">
+//                 <h3 className="font-semibold text-lg mb-2">{project.title}</h3>
+//                 <p className="text-gray-600">{project.description}</p>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// // SkillCategory Component with original styling
+// const SkillCategory = ({ title, icon, skills, onClick }) => (
+//   <div className="skill-category" onClick={onClick}>
+//     <div className="skill-header">
+//       {icon}
+//       <h3>{title}</h3>
+//     </div>
+//     <ul className="skill-list">
+//       {skills.map((skill, index) => (
+//         <li key={index}>{skill}</li>
+//       ))}
+//     </ul>
+//   </div>
+// );
+
+// const Skills = () => {
+//   const [selectedCategory, setSelectedCategory] = useState(null);
+
+//   const skillCategories = [
+//     {
+//       title: "Programming Languages",
+//       icon: <Code className="skill-icon" />,
+//       skills: [
+//         "Proficient in Kotlin, Python, and JavaScript",
+//         "Strong understanding of data types and structures",
+//         "Experience with object-oriented programming"
+//       ]
+//     },
+//     {
+//       title: "Web Development",
+//       icon: <Palette className="skill-icon" />,
+//       skills: [
+//         "HTML, CSS, and JavaScript fundamentals",
+//         "React and DOM manipulation",
+//         "Responsive design and UI/UX principles",
+//         "API integration and asynchronous programming"
+//       ]
+//     },
+//     {
+//       title: "Backend & Databases",
+//       icon: <Database className="skill-icon" />,
+//       skills: [
+//         "Django Framework expertise",
+//         "SQL and database management",
+//         "RESTful API design and implementation"
+//       ]
+//     },
+//     {
+//       title: "Mobile Development",
+//       icon: <Code className="skill-icon" />,
+//       skills: [
+//         "Android development concepts",
+//         "Activity views, binding, and intents",
+//         "Mobile UI/UX design principles"
+//       ]
+//     },
+//     {
+//       title: "Design & Tools",
+//       icon: <Wrench className="skill-icon" />,
+//       skills: [
+//         "Figma, Adobe Illustrator, and Photoshop",
+//         "Logo design and mockup creation",
+//         "Version control with Git and GitHub"
+//       ]
+//     },
+//     {
+//       title: "Soft Skills & Methodologies",
+//       icon: <Users className="skill-icon" />,
+//       skills: [
+//         "Agile and Scrum methodologies",
+//         "Sprint planning and retrospectives",
+//         "Collaboration and code review processes"
+//       ]
+//     }
+//   ];
+
+//   return (
+//     <div className="skills-container">
+//       <h2 className="skills-title">My Skill Set</h2>
+//       <div className="skills-grid">
+//         {skillCategories.map((category, index) => (
+//           <SkillCategory
+//             key={index}
+//             {...category}
+//             onClick={() => setSelectedCategory(category)}
+//           />
+//         ))}
+//       </div>
+//       {selectedCategory && (
+//         <CollageView
+//           category={selectedCategory}
+//           onClose={() => setSelectedCategory(null)}
+//         />
+//       )}
+//     </div>
+//   );
+// };
+
+// export default Skills;
+
+// import React from 'react';
+// import { Code, Palette, Database, Users, Wrench, Phone } from 'lucide-react';
+// import { useState } from 'react';
+// import './index.css'
+
+// // CollageView Component
+// const CollageView = ({ category, onClose }) => {
+//   // Sample project data - replace with your actual projects
+//   const projectsByCategory = {
+//     "Programming Languages": [
+//       { title: "Python Data Analysis", image: "/api/placeholder/300/200", description: "Data analysis project using pandas" },
+//       { title: "JavaScript Game", image: "/api/placeholder/300/200", description: "Browser-based game using vanilla JS" },
+//       { title: "Kotlin Android App", image: "/api/placeholder/300/200", description: "Mobile application" }
+//     ],
+//     "Web Development": [
+//       { title: "E-commerce Site", image: "/api/placeholder/300/200", description: "Full-stack React application" },
+//       { title: "Portfolio Website", image: "/api/placeholder/300/200", description: "Responsive personal portfolio" },
+//       { title: "Dashboard UI", image: "/api/placeholder/300/200", description: "Admin dashboard interface" }
+//     ],
+//     "Backend & Databases": [
+//       { title: "REST API", image: "/api/placeholder/300/200", description: "Django REST framework API" },
+//       { title: "Database Design", image: "/api/placeholder/300/200", description: "Complex SQL database schema" },
+//       { title: "Authentication System", image: "/api/placeholder/300/200", description: "Secure user auth system" }
+//     ],
+//     "Mobile Development": [
+//       { title: "Fitness Tracker", image: "/api/placeholder/300/200", description: "Android fitness app" },
+//       { title: "Chat Application", image: "/api/placeholder/300/200", description: "Real-time messaging app" },
+//       { title: "Weather App", image: "/api/placeholder/300/200", description: "Location-based weather app" }
+//     ],
+//     "Design & Tools": [
+//       { title: "Brand Identity", image: "/api/placeholder/300/200", description: "Complete brand package" },
+//       { title: "UI Kit", image: "/api/placeholder/300/200", description: "Component library design" },
+//       { title: "Logo Collection", image: "/api/placeholder/300/200", description: "Various client logos" }
+//     ],
+//     "Soft Skills & Methodologies": [
+//       { title: "Team Project", image: "/api/placeholder/300/200", description: "Agile development process" },
+//       { title: "Documentation", image: "/api/placeholder/300/200", description: "Technical documentation" },
+//       { title: "Sprint Planning", image: "/api/placeholder/300/200", description: "Project management" }
+//     ]
+//   };
+
+//   const projects = projectsByCategory[category.title] || [];
+
+//   return (
+//     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+//       <div className="bg-white rounded-lg w-full max-w-4xl p-6 max-h-[90vh] overflow-y-auto">
+//         <div className="flex justify-between items-center mb-6">
+//           <h2 className="text-2xl font-bold flex items-center gap-2">
+//             {category.icon}
+//             {category.title}
+//           </h2>
+//           <button 
+//             onClick={onClose}
+//             className="p-2 hover:bg-gray-100 rounded-full"
+//           >
+//             ×
+//           </button>
+//         </div>
+        
+//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+//           {projects.map((project, index) => (
+//             <div key={index} className="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+//               <img 
+//                 src={project.image} 
+//                 alt={project.title}
+//                 className="w-full h-48 object-cover"
+//               />
+//               <div className="p-4">
+//                 <h3 className="font-semibold text-lg mb-2">{project.title}</h3>
+//                 <p className="text-gray-600">{project.description}</p>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// // SkillCategory Component
+// const SkillCategory = ({ category, onClick }) => (
+//   <div 
+//     onClick={onClick}
+//     className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer"
+//   >
+//     <div className="flex items-center gap-2 mb-4">
+//       {category.icon}
+//       <h3 className="text-xl font-semibold">{category.title}</h3>
+//     </div>
+//     <ul className="space-y-2">
+//       {category.skills.map((skill, index) => (
+//         <li key={index} className="text-gray-600">• {skill}</li>
+//       ))}
+//     </ul>
+//   </div>
+// );
+
+// // Main Skills Component
+// const Skills = () => {
+//   const [selectedCategory, setSelectedCategory] = useState(null);
+
+//   const skillCategories = [
+//     {
+//       title: "Programming Languages",
+//       icon: <Code className="w-6 h-6 text-blue-500" />,
+//       skills: [
+//         "Proficient in Kotlin, Python, and JavaScript",
+//         "Strong understanding of data types and structures",
+//         "Experience with object-oriented programming"
+//       ]
+//     },
+//     {
+//       title: "Web Development",
+//       icon: <Palette className="w-6 h-6 text-purple-500" />,
+//       skills: [
+//         "HTML, CSS, and JavaScript fundamentals",
+//         "React and DOM manipulation",
+//         "Responsive design and UI/UX principles",
+//         "API integration and asynchronous programming"
+//       ]
+//     },
+//     {
+//       title: "Backend & Databases",
+//       icon: <Database className="w-6 h-6 text-green-500" />,
+//       skills: [
+//         "Django Framework expertise",
+//         "SQL and database management",
+//         "RESTful API design and implementation"
+//       ]
+//     },
+//     {
+//       title: "Mobile Development",
+//       icon: <Phone className="w-6 h-6 text-orange-500" />,
+//       skills: [
+//         "Android development concepts",
+//         "Activity views, binding, and intents",
+//         "Mobile UI/UX design principles"
+//       ]
+//     },
+//     {
+//       title: "Design & Tools",
+//       icon: <Wrench className="w-6 h-6 text-red-500" />,
+//       skills: [
+//         "Figma, Adobe Illustrator, and Photoshop",
+//         "Logo design and mockup creation",
+//         "Version control with Git and GitHub"
+//       ]
+//     },
+//     {
+//       title: "Soft Skills & Methodologies",
+//       icon: <Users className="w-6 h-6 text-yellow-500" />,
+//       skills: [
+//         "Agile and Scrum methodologies",
+//         "Sprint planning and retrospectives",
+//         "Collaboration and code review processes"
+//       ]
+//     }
+//   ];
+
+//   return (
+//     <div className="max-w-6xl mx-auto px-4 py-12">
+//       <h2 className="text-3xl font-bold text-center mb-12">My Skill Set</h2>
+      
+//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+//         {skillCategories.map((category, index) => (
+//           <SkillCategory
+//             key={index}
+//             category={category}
+//             onClick={() => setSelectedCategory(category)}
+//           />
+//         ))}
+//       </div>
+
+//       {selectedCategory && (
+//         <CollageView
+//           category={selectedCategory}
+//           onClose={() => setSelectedCategory(null)}
+//         />
+//       )}
+//     </div>
+//   );
+// };
+
+// export default Skills;
