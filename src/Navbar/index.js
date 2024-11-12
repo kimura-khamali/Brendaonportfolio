@@ -17,12 +17,10 @@ function Navbar() {
           Portfolio
         </Link>
 
-        {/* Mobile menu button */}
         <button className="mobile-menu-button" onClick={toggleMenu}>
           <span className={`hamburger ${isMenuOpen ? 'open' : ''}`}></span>
         </button>
 
-        {/* Navigation links */}
         <div className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
           <Link 
             to="/home" 
