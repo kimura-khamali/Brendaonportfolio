@@ -88,7 +88,6 @@ const CollageView = ({ category, onClose }) => {
     );
 };
 
-// SkillCategory Component with original styling
 const SkillCategory = ({ title, icon, skills, onClick }) => (
     <div className="skill-category" onClick={onClick}>
         <div className="skill-header">
