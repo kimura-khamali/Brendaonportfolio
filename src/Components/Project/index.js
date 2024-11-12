@@ -7,6 +7,7 @@ import Akili from '../../assets/akili.png'
 import Evogreen from '../../assets/evogreen.png'
 import Portfolio from '../../assets/brenda.png'
 import Hero from '../../assets/Hero.png'
+import Trevoh from '../../assets/trevoh.png'
 import './index.css'; 
 
 const ProjectShowcase = () => {
@@ -43,9 +44,9 @@ const ProjectShowcase = () => {
       link: 'https://shawazi-magezi.vercel.app/'
     },
     {
-      title: 'Suubi',
-      screenshot: Suubi,
-      link: 'https://my-suubi-webpage.vercel.app/'
+      title: 'Mentorship',
+      screenshot: Trevoh,
+      link: 'https://mentorship-website-lovat.vercel.app/'
     },
     
     {
