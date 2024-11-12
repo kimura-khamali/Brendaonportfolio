@@ -14,7 +14,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/home" className="navbar-logo">
-          Portfolio
+          Bresh
         </Link>
 
         <button className="mobile-menu-button" onClick={toggleMenu}>
