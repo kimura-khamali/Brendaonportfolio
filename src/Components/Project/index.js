@@ -5,7 +5,7 @@ import shawazi_product from '../../assets/shaproduct.png'
 import Suubi from '../../assets/suubi.png'
 import Akili from '../../assets/akili.png'
 import Evogreen from '../../assets/evogreen.png'
-import Portfolio from '../../assets/brenda.png'
+import Portfolio from '../../assets/Brenda.png'
 import Hero from '../../assets/Hero.png'
 import Trevoh from '../../assets/trevoh.png'
 import './index.css'; 

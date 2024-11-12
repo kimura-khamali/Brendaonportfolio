@@ -21,7 +21,7 @@ import jira from '../../assets/jira.png'
 const CollageView = ({ category, onClose }) => {
     const projectsByCategory = {
         "Programming Languages": [
-            { title: "Welcome", image: design, description: "Data analysis project using pandas" },
+            { title: "Welcome", image: design },
             
         ],
         "Web Development": [
@@ -39,13 +39,13 @@ const CollageView = ({ category, onClose }) => {
             { title: "Saving Up", image: order, description: "Saving app" },
         ],
         "Design & Tools": [
-            { title: "CV design", image: cv, description: "Complete brand package" },
-            { title: "Calculator", image: calculator, description: "Component library design" },
-            { title: "Mock Up", image: anuru, description: "Component library design" },
+            { title: "CV design", image: cv, description: "my CV" },
+            { title: "Calculator", image: calculator, description: "My own calculator" },
+            { title: "Mock Up", image: anuru, description: "Anuru trawberry design" },
             { title: "Logo Collection", image: logo, description: "Various client logos" }
         ],
         "Soft Skills & Methodologies": [
-            { title: "Documentation", image: document, description: "Technical documentation" },
+            { title: "Documentation", image: document, description: "Technical documentation example" },
             { title: "Sprint Planning", image: jira, description: "Project management" }
         ]
     };
