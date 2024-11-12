@@ -14,7 +14,6 @@ import sql from '../../assets/postgres - Magezi_table.png'
 import postdetails from '../../assets/postman.png'
 import authentication from '../../assets/authentication.png'
 import order from '../../assets/order.png'
-import team from '../../assets/team.png'
 import document from '../../assets/documentation.png'
 import jira from '../../assets/jira.png'
 
@@ -46,7 +45,6 @@ const CollageView = ({ category, onClose }) => {
             { title: "Logo Collection", image: logo, description: "Various client logos" }
         ],
         "Soft Skills & Methodologies": [
-            { title: "Team Project", image: team, description: "Agile development process" },
             { title: "Documentation", image: document, description: "Technical documentation" },
             { title: "Sprint Planning", image: jira, description: "Project management" }
         ]
